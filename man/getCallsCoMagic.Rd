@@ -26,9 +26,9 @@ getCallsCoMagic(token = NULL, user_id = NULL, date_from = NULL,
 
 \item{date_till}{date_till, by default adding 00:00:00, so that you should do date+1}
 
-\item{filter}{filters, default value is !=NULL https://www.comagic.ru/support/api/data-api/#_filters}
+\item{filter}{filters, default value is !=NULL, https://www.comagic.ru/support/api/data-api/#_filters}
 
-\item{fields}{Fields}
+\item{fields}{fields, https://www.comagic.ru/support/api/data-api/Reports/}
 }
 \description{
 Function to get all calls
