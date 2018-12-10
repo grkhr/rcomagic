@@ -144,10 +144,11 @@ getCallsCoMagic <- function (
   names(mainresult) <- gsub("[.]","_",names(mainresult))
   
   # result$utm_campaign <- as.integer(result$utm_campaign)
-  return(mainresult)
   total_work_time <- round(difftime(Sys.time(), proc_start , units ="secs"),0)
   packageStartupMessage(paste0("Total time: ",total_work_time, " sec."))
   
+  return(mainresult)
+
 }
 
 
