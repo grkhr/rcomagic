@@ -6,5 +6,4 @@ Description: Get Calls from CoMagic.
 Depends: R (>= 3.5.1)
 License: What license is it under?
 LazyData: true
-Encoding: UTF-8
 RoxygenNote: 6.1.0.9000

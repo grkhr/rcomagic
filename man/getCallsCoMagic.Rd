@@ -18,7 +18,7 @@ getCallsCoMagic(token = NULL, user_id = NULL, date_from = NULL,
   "source"))
 }
 \arguments{
-\item{token}{Your Data API token stri_enc_toutf8(ü¾™–”¼ü¾Œ¦”¼ü¾Œ†˜¼ü¾Œ†”¼ü¾Ž†˜¼ü¾Œ¶”¼ü¾˜¦˜¼ü¾Œ¶˜¼ü¾Ž†”¼ü¾†˜¼ü¾Œ†”¼ü¾Ž–˜¼ü¾Ž†˜¼ü¾Œ¶”¼)}
+\item{token}{Your Data API token}
 
 \item{user_id}{Your ID, request it from technical support}
 
