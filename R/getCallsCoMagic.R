@@ -1,7 +1,7 @@
 #' Get Calls
-#' 
+#'
 #' Function to get all calls
-#' @param token Your Data API token
+#' @param token Your Data API token stri_enc_toutf8(ÐÀÎÓÈÛÎÀÈ)
 #' @param user_id Your ID, request it from technical support
 #' @param date_from date_from, by default adding 00:00:00
 #' @param date_till date_till, by default adding 00:00:00, so that you should do date+1
@@ -17,7 +17,7 @@
 #' @importFrom rjson fromJSON
 #' @importFrom dplyr %>%
 #' @importFrom plyr rbind.fill
-#' @examples 
+#' @examples
 #' getCallsCoMagic()
 
 getCallsCoMagic <- function (
@@ -28,7 +28,7 @@ getCallsCoMagic <- function (
   filter = list(
     field = "campaign_name",
     operator = "!=",
-    value = NULL), 
+    value = NULL),
   fields = list(
     "id","visitor_id","ua_client_id","start_time","finish_time","finish_reason","direction",
     "is_lost","communication_number","communication_id","communication_type",
@@ -72,11 +72,11 @@ getCallsCoMagic <- function (
                                 fields = fields)
                             )
                           )),"parsed", "application/json")
-    
+
     totalItems <- Calls$result$metadata$total_items
     page <- floor(totalItems/1000)
     result <- data.frame(stringsAsFactors = F)
-    
+
     for (p in 0:page) {
       Calls <- content(POST("https://dataapi.comagic.ru/v2.0",
                             body = toJSON(
@@ -95,24 +95,24 @@ getCallsCoMagic <- function (
                                   fields = fields)
                               )
                             )),"parsed", "application/json")
-      
-      
+
+
       # gsub()
-      
-      
+
+
       for (iii in 1:length(Calls$result$data))
       {
-        
+
         Calls$result$data[[iii]] <-  Calls$result$data[[iii]] %>% replace(.=="NULL", NA)
         if (length(Calls$result$data[[iii]]$attributes[[1]]) > 1)
         {
           for (ii in 1:length(Calls$result$data[[iii]]$attributes[[1]])) Calls$result$data[[iii]]$attributes[[1]] <-  Calls$result$data[[iii]]$attributes[[1]] %>% replace(.=="NULL", NA)
           Calls$result$data[[iii]]$attributes <- Calls$result$data[[iii]]$attributes[[1]]
         }
-        
+
         if (length(Calls$result$data[[iii]]$tags[[1]]) > 1)
         {
-          
+
           for (itag in 1:length(Calls$result$data[[iii]]$tags))
           {
             for (ii in 1:length(Calls$result$data[[iii]]$tags[[itag]])) Calls$result$data[[iii]]$tags[[itag]] <-  Calls$result$data[[iii]]$tags[[itag]] %>% replace(.=="NULL", NA)
@@ -120,21 +120,21 @@ getCallsCoMagic <- function (
             tagresult <- Calls$result$data[[iii]]
             tagresult$tags <- Calls$result$data[[iii]]$tags[[itag]]
             result <- rbind.fill(result,data.frame(tagresult,stringsAsFactors = F))
-            
+
           }
         } else {
           result <- rbind.fill(result,data.frame(Calls$result$data[[iii]],stringsAsFactors = F))
         }
-        
+
       }
-      
+
       packageStartupMessage("Processed ",ch+length(result[[1]])," rows", appendLF = T)
       ch <- ch + length(result[[1]])
     }
     mainresult <- rbind.fill(mainresult,result)
-    
+
   }
-  # column_names <- unlist(lapply(c(names(rows[[1]])), 
+  # column_names <- unlist(lapply(c(names(rows[[1]])),
   #                                function(x) return(x)))
   # colnames(result) <- column_names
   # for (rows_i in 1:length(rows)) {
@@ -142,11 +142,11 @@ getCallsCoMagic <- function (
   # }
   names(mainresult) <- gsub("[..]","_",names(mainresult))
   names(mainresult) <- gsub("[.]","_",names(mainresult))
-  
+
   # result$utm_campaign <- as.integer(result$utm_campaign)
   total_work_time <- round(difftime(Sys.time(), proc_start , units ="secs"),0)
   packageStartupMessage(paste0("Total time: ",total_work_time, " sec."))
-  
+
   return(mainresult)
 
 }
