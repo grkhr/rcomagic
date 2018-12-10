@@ -5,8 +5,8 @@
 #' @param user_id Your ID, request it from technical support
 #' @param date_from date_from, by default adding 00:00:00
 #' @param date_till date_till, by default adding 00:00:00, so that you should do date+1
-#' @param filter filters, deafult value is !=NULL https://www.comagic.ru/support/api/data-api/#_filters
-#' @param fields Fields (see \code{\link{https://www.comagic.ru/support/api/data-api/Reports/}})
+#' @param filter filters, default value is !=NULL https://www.comagic.ru/support/api/data-api/#_filters
+#' @param fields Fields
 #' @export
 #' @importFrom httr POST
 #' @importFrom httr GET
