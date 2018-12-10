@@ -18,7 +18,7 @@ getCallsCoMagic(token = NULL, user_id = NULL, date_from = NULL,
   "source"))
 }
 \arguments{
-\item{token}{Your Data API token stri_enc_toutf8(ü¾Œ¦¼ü¾–Œ¼ü¾Œ–¼ü¾Œ¦¼ü¾™–Œ¼)}
+\item{token}{Your Data API token}
 
 \item{user_id}{Your ID, request it from technical support}
 
@@ -26,9 +26,9 @@ getCallsCoMagic(token = NULL, user_id = NULL, date_from = NULL,
 
 \item{date_till}{date_till, by default adding 00:00:00, so that you should do date+1}
 
-\item{filter}{filters, default value is !=NULL, https://www.comagic.ru/support/api/data-api/#_filters}
+\item{filter}{filters, default value is !=NULL, see \code{\link{https://www.comagic.ru/support/api/data-api/#_filters}}}
 
-\item{fields}{fields, see \code{\link[fields]{https://www.comagic.ru/support/api/data-api/Reports/}}}
+\item{fields}{fields, see \code{\link{https://www.comagic.ru/support/api/data-api/Reports/}}}
 }
 \description{
 Function to get all calls
