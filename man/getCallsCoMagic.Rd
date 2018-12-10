@@ -28,7 +28,7 @@ getCallsCoMagic(token = NULL, user_id = NULL, date_from = NULL,
 
 \item{filter}{filters, default value is !=NULL, https://www.comagic.ru/support/api/data-api/#_filters}
 
-\item{fields}{fields, https://www.comagic.ru/support/api/data-api/Reports/}
+\item{fields}{fields, (see \code{\link{https://www.comagic.ru/support/api/data-api/Reports/}})}
 }
 \description{
 Function to get all calls
