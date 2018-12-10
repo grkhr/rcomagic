@@ -1,0 +1,9 @@
+Package: rcomagic
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("grkhr", role = c("aut", "cre"))
+Description: Get Calls from CoMagic.
+Depends: R (>= 3.5.1)
+License: What license is it under?
+LazyData: true
+RoxygenNote: 6.1.0.9000
