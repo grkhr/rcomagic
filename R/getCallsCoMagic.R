@@ -39,7 +39,7 @@ getCallsCoMagic <- function (
     "visitor_country","visitor_device","contact_phone_number",
     "utm_source","utm_medium","utm_term","utm_content",
     "utm_campaign", "attributes", "source")){
-  
+  proc_start <- Sys.time()
   numdays <- as.integer(difftime(date_till,date_from))
   divnumber <- (numdays-1) %/% 90
   if (numdays %% 90 == 0) {divremainder <- 90} else {divremainder <- numdays %% 90}
@@ -145,6 +145,8 @@ getCallsCoMagic <- function (
   
   # result$utm_campaign <- as.integer(result$utm_campaign)
   return(mainresult)
+  total_work_time <- round(difftime(Sys.time(), proc_start , units ="secs"),0)
+  packageStartupMessage(paste0("Total time: ",total_work_time, " sec."))
   
 }
 
