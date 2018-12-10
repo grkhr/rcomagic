@@ -1,7 +1,7 @@
 #' Get Calls
 #'
 #' Function to get all calls
-#' @param token Your Data API token מגנארדûףטפאשרד
+#' @param token Your Data API token stri_enc_toutf8(מגנארדûףטפאשרד)
 #' @param user_id Your ID, request it from technical support
 #' @param date_from date_from, by default adding 00:00:00
 #' @param date_till date_till, by default adding 00:00:00, so that you should do date+1
