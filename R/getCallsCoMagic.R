@@ -6,7 +6,7 @@
 #' @param date_from date_from, by default adding 00:00:00
 #' @param date_till date_till, by default adding 00:00:00, so that you should do date+1
 #' @param filter filters, deafult value is !=NULL https://www.comagic.ru/support/api/data-api/#_filters
-#' @param fields (see \code{\link[Fields]{https://www.comagic.ru/support/api/data-api/Reports/}})
+#' @param fields Fields (see \code{\link[fieldsff]{https://www.comagic.ru/support/api/data-api/Reports/}})
 #' @export
 #' @importFrom httr POST
 #' @importFrom httr GET
