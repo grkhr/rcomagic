@@ -8,10 +8,15 @@
 #' @param filter filters, deafult value is !=NULL https://www.comagic.ru/support/api/data-api/#_filters
 #' @param fields fields https://www.comagic.ru/support/api/data-api/Reports/
 #' @export
-#' @import dplyr
-#' @import httr
-#' @import plyr
-#' @import rjson
+#' @importFrom httr POST
+#' @importFrom httr GET
+#' @importFrom httr stop_for_status
+#' @importFrom httr content
+#' @importFrom httr add_headers
+#' @importFrom rjson toJSON
+#' @importFrom rjson fromJSON
+#' @importFrom dplyr %>%
+#' @importFrom plyr rbind.fill
 #' @examples 
 #' getCallsCoMagic()
 
