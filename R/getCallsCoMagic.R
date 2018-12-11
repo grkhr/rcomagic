@@ -25,11 +25,16 @@ getCallsCoMagic <- function (
   user_id = NULL,
   date_from = NULL,
   date_till = NULL,
-  filter = list(
+  filter = NULL,
+  fields = NULL){
+  proc_start <- Sys.time()
+
+  if (is.null(filter)) filter <- list(
     field = "campaign_name",
     operator = "!=",
-    value = NULL),
-  fields = list(
+    value = NULL)
+
+  if (is.null(fields)) fields <- list(
     "id","visitor_id","ua_client_id","start_time","finish_time","finish_reason","direction",
     "is_lost","communication_number","communication_id","communication_type",
     "total_duration","virtual_phone_number","sale_date","sale_cost",
@@ -38,8 +43,9 @@ getCallsCoMagic <- function (
     "site_domain_name","campaign_name","visitor_city","visitor_region",
     "visitor_country","visitor_device","contact_phone_number",
     "utm_source","utm_medium","utm_term","utm_content",
-    "utm_campaign", "attributes", "source")){
-  proc_start <- Sys.time()
+    "utm_campaign", "attributes", "source")
+
+
   numdays <- as.integer(difftime(date_till,date_from))
   divnumber <- (numdays-1) %/% 90
   if (numdays %% 90 == 0) {divremainder <- 90} else {divremainder <- numdays %% 90}
